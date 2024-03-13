@@ -1,296 +1,365 @@
 #include"public.h"
 #include"login.h"
-#include"welcome.h"
-
-void Login(int *page)
+/************************************************************************
+FUNCTION:Login
+DESCRIPTION:实现登录选择功能
+INPUT:界面跳转控制变量page,管理员所属机构ad
+RETURN:无
+************************************************************************/
+void Login(int *page,int *ad)
 {
-	int pos1=0;
-	int pos2=0;
-	int tag=0;
-	char account[15]; 
-	char password[15];
-	
+    int flag=0;
 	clrmous(MouseX,MouseY);
-    delay(100);
-    save_bk_mou(MouseX,MouseY);
-    Draw_Login(); 
-    
-    while(1)
-    {
-    	newmouse(&MouseX,&MouseY,&press);
-    	//移至账号 
-    	if(MouseX>170&&MouseX<545&&MouseY>203&&MouseY<235);
-    	{
-    		if(mouse_press(170,203,545,235)==2)
-    		{
-    			MouseS=2;
-    			if(tag==0&&pos1==0)
-    			{
-    				tag=1;
-    				Light_login(1);
-				}
-				continue;
-			}
-			else if(mouse_press(170,203,545,235)==1)
-			{
-				Light_login(1);
-				MouseS=0;
-				account[0]='\0';
-			}
-		}
-		//移至密码 
-		if(MouseX>170&&MouseX<545&&MouseY>245&&MouseY<277)
+	delay(100);
+	save_bk_mou(MouseX,MouseY);
+	Draw_Login();
+	
+	while(1)
+	{               
+	    newmouse(&MouseX,&MouseY,&press);    
+		if(MouseX>170&&MouseX<300&& MouseY>90&&MouseY<220)  
 		{
-			if(mouse_press(170,245,545,277)==2)
-			{
-				MouseS=2;
-				if(tag==0&&pos2==0)
-				{
-					tag=2;
-					Light_login(2);
-				}
+			if(mouse_press(170,90,300,220)==2)              
+			    {
+				    MouseS=1;           
+                    if(flag=0); 
+                    {
+                        Login_Light(1);
+					    flag=1;
+                    }					
 				continue;
-			}
-			else if(mouse_press==1)
-			{
-				Light_login(2);
-				MouseS=0;
-				password[0]='\0';
-			}
-		}
-		//移至登录 
-		if(MouseX>260&&MouseX<380&&MouseY>290&&MouseY<325)
+			    }
+			    else if(mouse_press(170,90,300,220)==1)        
+			    {
+			        MouseS=0;
+			        clrmous(MouseX,MouseY);
+			        *page=1;//跳转至乘客登录界面
+				    break;
+			        }
+		        }
+		if(MouseX>320&&MouseX<450&& MouseY>90&&MouseY<220)  
 		{
-			if(mouse_press(260,290,380,325)==2)
+			if(mouse_press(320,90,450,220)==2)              
 			{
-				if(tag==0)
-				{
-					tag=3;
-					Light_login(3);
-				}
-				continue;
+				MouseS=1;  
+                if(flag=0);
+                {
+                    Login_Light(2);
+					flag=2;
+                }									
+			continue;
 			}
-			else if(mouse_press(260,290,380,325)==1)
+			else if(mouse_press(320,90,450,220)==1)        
 			{
-				Light_login(3);
 				MouseS=0;
-			}
-		}
-		//移至注册 
-		if(MouseX>136&&MouseX<200&&MouseY>340&&MouseY<365)
-		{
-			if(mouse_press(136,340,200,365)==2)
-			{
-				if(tag==0)
-				{
-					tag=4;
-					Light_login(4);
-				}
-				continue;
-			}
-			else if(mouse_press(136,340,200,365)==1)
-			{
-				Light_login(4);
-				MouseS=0;
-				*page=3;
+				*ad=1;
+				*page=2;//跳转至检测机构管理员界面
 				break;
 			}
 		}
-		//移至修改密码 
-		if(MouseX>264&&MouseX<376&&MouseY>340&&MouseY<365)
+		if(MouseX>170&&MouseX<300&& MouseY>240&&MouseY<370)  
 		{
-			if(mouse_press(264,340,376,365)==2)
+			if(mouse_press(170,240,300,370)==2)              
 			{
-				if(tag==0)
-				{
-					tag=5;
-					Light_login(5);
-				}
+				MouseS=1;  
+                if(flag=0);
+                {
+                    Login_Light(3);
+					flag=3;
+                }									
 				continue;
 			}
-			else if(mouse_press(264,340,376,365)==1)
+			else if(mouse_press(170,240,300,370)==1)        
 			{
-				Light_login(5);
 				MouseS=0;
-				*page=2;
+				*ad=2;
+				*page=2;//跳转至卫健委管理员界面
 				break;
 			}
 		}
-		//移至退出 
-		if(MouseX>440&&MouseX<504&&MouseY>340&&MouseY<365)
+		if(MouseX>320&&MouseX<450&& MouseY>240&& MouseY<370)  
 		{
-			if(mouse_press(440,340,504,365)==2)
+			if(mouse_press(320,240,450,370)==2)              
 			{
-				if(tag==0)
-				{
-					tag=6;
-					Light_login(6);
-				}
+				MouseS=1;     
+                if(flag=0);
+            {
+                Login_Light(4);
+				flag=4;
+            }									
+			continue;
+			}
+			else if(mouse_press(320,240,450,370)==1)        
+			{
+				MouseS=0;
+				*ad=3;
+				*page=2;//跳转至铁路管理员界面
+				break;
+			}
+		}
+		if(MouseX>492&&MouseX<597&&MouseY>417&&MouseY<437)
+		{
+			if(mouse_press(492,417,597,437)==2)
+			{
+				MouseS=1;
 				continue;
 			}
-			else if(mouse_press(440,340,504,365)==1)
+			else if(mouse_press(492,417,597,437)==1)
 			{
-				Light_login(6);
 				MouseS=0;
 				Bye();
+				delay(3000);
+				exit(1);
 				break;
 			}
 		}
-		if(tag!=0)
+		if(flag!=0)
 		{
-			MouseS=0;
-			if(pos1=0)
-			{
-				Light_login(1);
-			}
-			if(pos2=0)
-			{
-				Light_login(2);
-			}
-			if(tag==3||tag==4||tag==5||tag==6)
-			{
-				Light_login(tag);
-			}
-			tag=0;
+			Login_Darken(flag);
+			flag=0;
 		}
 		if(MouseS!=0)
 		{
-			MouseS=0;
+		    MouseS=0;
+		}
+    }
+}
+
+/************************************************************************
+FUNCTION:Draw_Login
+DESCRIPTION:绘制登录选择界面
+INPUT:无
+RETURN:无
+************************************************************************/
+int Draw_Login()
+{
+	int i,color,x,y,k;
+	int x1=25;
+	int y1=20;
+	int x2=639-x1;
+	int y2=430-y1;
+	int a=22;
+	int b=7;
+	int r=20;
+    
+	cleardevice();
+	setbkcolor(DARKGRAY);
+	setlinestyle(SOLID_LINE,0,NORM_WIDTH);
+    setcolor(LIGHTGRAY);	
+	line(0,0,40,40);
+	line(40,40,600,40);
+	line(600,40,640,0);
+	line(40,40,40,440);
+	line(40,440,0,480);
+	line(600,40,600,440);
+	line(600,440,640,480);
+	line(40,440,600,440);
+	
+    
+	setfillstyle(1,BLUE);
+	bar(170,90,320,240);
+	puthz(213,149,"乘客",32,32,LIGHTGRAY);
+	delay(200);
+	
+	setfillstyle(1,RED);
+	bar(320,90,470,240);
+	puthz(371,141,"检测",24,24,LIGHTGRAY);
+	puthz(371,165,"机构",24,24,LIGHTGRAY);
+	delay(200);
+	
+	setfillstyle(1,BROWN);
+	bar(320,240,470,390);
+	puthz(363,299,"铁路",32,32,LIGHTGRAY);
+	delay(200);
+	
+	setfillstyle(1,GREEN);
+	bar(170,240,320,390);
+	puthz(209,303,"卫健委",24,24,LIGHTGRAY);
+	delay(200);
+	
+	
+	setfillstyle(1,MAGENTA);
+	pieslice(320,240,0,360,50);
+	setcolor(MAGENTA);
+	line(320,240,370,240);
+	puthz(302,232,"欢迎",16,20,WHITE);
+	
+	draw_exit(497, 420, LIGHTGREEN, WHITE, BLUE, GREEN);
+	
+	/*setcolor(LIGHTGRAY);
+	cover(x2-50, y1, x2, y2-80, LIGHTGRAY);
+	highlight(x2-50, y1, x2, y2-80, WHITE);
+	triangle(585, 180, 639, 180, 639, 80, WHITE);
+	trianglefill(585 + 2, 180 - 2, 639 - 2, 180 - 2, 639 - 2, 80 + 2, WHITE);*///decoration of bk
+	 /*for (k=0;k<y2;k++)
+	{
+	    
+		setlinestyle(SOLID_LINE,0,3);
+		setcolor(WHITE);
+		line (x-15,y+k,x+15,y+k);
+		delay(3);
+		k+=2;
+	}*/
+    for (i=0;i<(x2-x1)/a;i++)
+	{
+		if (i%2==0)
+		{
+			
+			cover(x1+i*a,y1,(i+1)*a+x1,y1+b,LIGHTBLUE);
+			delay(10);
+		}
+		if (i%2)
+		{
+		    cover(x1+i*a,y1,(i+1)*a+x1,y1+b,WHITE);
+			delay(10);
+			
+		}
+		if (i%8==0)
+			{
+			   stalightred(x1+i*a+a/2,y1+b/2,8);
+			}
+	} 
+    
+	y1-=6;
+	y2+=6;
+	x1+=5;
+	for (i=0;i<(y2-y1)/a;i++)
+	{
+		if (i%2==0)
+		{
+			
+			cover(x1,y1+i*a,x1+b,(i+1)*a+y1,BROWN);
+			//if (i<(y2-y1)/a-5)
+			//cover(x2,y1+i*a,x2+b,(i+1)*a+y1,BROWN);
+			delay(10);
+		}
+		if (i%2)
+		{
+		    cover(x1,y1+i*a,b+x1,y1+(i+1)*a,WHITE);
+			//if (i<(y2-y1)/a-5)
+			//cover(x2,y1+i*a,b+x2,y1+(i+1)*a,WHITE);
+			delay(10);
+			
+		}
+		if(!(i))
+			stayellow(x1+b/2,y1+i*a+a/2,12);
+		if (i%5==0&&i)
+		{
+			stagreen(x1+b/2,y1+i*a+a/2,8);
+			//stagreen(x2+b/2,y1+i*a+a/2,8);
+		}
+	}
+	cover(b+x1-7,y1+(i+1)*a-22,b+x1+5-5,y1+(i+1)*a+5-18,BROWN);
+	setcolor(BROWN);
+	x1+=4;
+	y1-=2;
+	arc(x1+r,y2,180,270,r);
+	x1+=1;y2-=1;
+	arc(x1+r,y2,180,270,r);
+	x1+=1;y2-=1;
+	arc(x1+r,y2,180,270,r);
+		x1+=1;y2-=1;
+	arc(x1+r,y2,180,270,r);
+	x1-=8;
+	x2-=180;
+	y2+=17;
+	y=y2+20;
+	for (i=0;i<(x2-x1)/a;i++)
+	{
+		if (i%2==0&&i)
+		{
+			
+			cover(x1+i*a,y2,(i+1)*a+x1,y2+b,BROWN);
+			cover(x1+i*a,y,(i+1)*a+x1,y+b,BLUE);
+			delay(10);
+		}
+		if (i%2)
+		{
+		    cover(x1+i*a,y2,(i+1)*a+x1,y2+b,WHITE);
+			cover(x1+i*a,y,(i+1)*a+x1,y+b,WHITE);
+			delay(10);
+			
+		}
+		if (i%4==0&&i)
+		{
+			   stalightred(x1+i*a+a/2,y2+b/2,8);
+			   if (i%8==0&&i)
+			   {
+				    stacyan(x1+i*a+a/2,y2+b/2,9);
+					stacyan(x1+i*a+a/2,y+b/2,9);
+					cover(x1+i*a+a/2-9,y2+b/2,x1+i*a+a/2+9,y+b/2,CYAN);
+			   }
+		}
+	} 
+	y2+=12;
+    Fill_Triangle(x2-10, y2-20, x2-10, y2+20, x2+30, y2, LIGHTGRAY);
+    triangle(x2-10, y2-20, x2-10, y2+20, x2+30, y2, LIGHTRED);
+}
+
+/************************************************************************
+FUNCTION:Login_Lighten
+DESCRIPTION:登录选择界面按钮点亮
+INPUT:点亮控制变量flag
+RETURN:无
+************************************************************************/
+int Login_Light(int flag)
+{
+	switch(flag)
+	{
+		case 1:
+		{
+		    puthz(213,149,"乘客",32,32,WHITE);
+			break;
+		}
+		case 2:
+		{
+			puthz(371,141,"检测",24,24,WHITE);
+	        puthz(371,165,"机构",24,24,WHITE);
+			break;
+		}
+		case 3:
+		{
+			puthz(209,303,"卫健委",24,24,WHITE);
+			break;
+		}
+		case 4:
+		{
+			puthz(363,299,"铁路",32,32,WHITE);
+			break;
 		}
 	}
 }
 
-int  Draw_Login()
+/************************************************************************
+FUNCTION:Login_Darken
+DESCRIPTION:登录选择界面按钮恢复
+INPUT:恢复控制变量flag
+RETURN:无
+************************************************************************/
+int Login_Darken(int flag)
 {
-	cleardevice();
-	setbkcolor(7);     //背景 
-	
-	setfillstyle(1,BLUE);
-	bar(0,0,640,60);
-	puthz(240,14,"武汉欢乐谷",32,32,LIGHTGRAY);
-	
-	puthz(95,203,"账号",32,32,CYAN);
-	puthz(95,245,"密码",32,32,CYAN);
-	
-	setfillstyle(1,WHITE);
-	bar(170,203,545,235);
-	bar(170,245,545,277);
-	
-	setfillstyle(1, RED);
-    bar(260,290,380,325);
-    puthz(291,295,"登录",24,34,WHITE);
-    
-    setfillstyle(1,WHITE);
-    setlinestyle(0,0,1);
-    setcolor(LIGHTBLUE);
-    bar(136,340,200,365);
-    puthz(148,344,"注册",16,24,LIGHTBLUE);
-    rectangle(136,340,200,365);
-    
-    bar(264,340,376,365);
-    puthz(276,344,"修改密码",16,24,LIGHTBLUE);
-    rectangle(264,340,376,365);
-    
-    bar(440,340,504,365);
-    puthz(452,344,"退出",16,24,LIGHTBLUE);
-    rectangle(440,340,504,365);
-} 
-
-int Light_login(int tag)
-{
-	clrmous(MouseX,MouseY);
-	delay(10);
-	
-	switch(tag)
+	switch(flag)
 	{
 		case 1:
-			setcolor(MAGENTA);       //鼠标移至账号栏 
-			setfillstyle(1,LIGHTGRAY);
-			setlinestyle(0,0,1);
-			bar(170,203,545,235);
-			rectangle(170,203,545,235);
+		{
+		    puthz(213,149,"乘客",32,32,LIGHTGRAY);
+			break;
+		}
 		case 2:
-	    	setcolor(MAGENTA);       //鼠标移至密码栏 
-			setfillstyle(1,LIGHTGRAY);
-			setlinestyle(0,0,1);
-			bar(170,245,545,277);
-			rectangle(170,245,545,277);
+		{
+			puthz(371,141,"检测",24,24,LIGHTGRAY);
+	        puthz(371,165,"机构",24,24,LIGHTGRAY);
+			break;
+		}
 		case 3:
-			setfillstyle(1,LIGHTMAGENTA);      
-			bar(260,290,380,325);
-			puthz(291,295,"登录",24,34,WHITE);
+		{
+			puthz(209,303,"卫健委",24,24,LIGHTGRAY);
+			break;
+		}
 		case 4:
-			setfillstyle(1,WHITE);            
-			bar(136,340,200,365);
-            puthz(148,344,"注册",16,24,CYAN);
-            setcolor(CYAN);
-            setlinestyle(0,0,1);
-            rectangle(136,340,200,365);	
-        case 5:
-		    setfillstyle(1,WHITE);
-		    bar(264,340,376,365);
-    		puthz(276,344,"修改密码",16,24,CYAN);
-    		setcolor(CYAN);
-            setlinestyle(0,0,1);
-    		rectangle(264,340,376,365); 
-    	case 6:
-    		setfillstyle(1,WHITE);
-    		bar(440,340,504,365);
-            puthz(452,344,"退出",16,24,LIGHTBLUE);
-            setcolor(CYAN);
-            setlinestyle(0,0,1);
-            rectangle(440,340,504,365);		    
+		{
+			puthz(363,299,"铁路",32,32,LIGHTGRAY);
+			break;
+		}
 	}
 }
-
-int Dark_login(int pos)                            
-{
-	clrmous(MouseX, MouseY);
-	setfillstyle(1, WHITE);
-	switch (pos)
-	{
-	case 1:
-		bar(170,203,545,235);
-		break;
-	case 2:
-		bar(170,245,545,277);
-		break;
-	case 3:
-		setfillstyle(1, RED);
-	    bar(260,290,380,325);
-        puthz(291,295,"登录",24,34,WHITE);
-		break;
-	case 4:
-		setlinestyle(0,0,1);
-	    setfillstyle(1,WHITE);
-	    bar(136,340,200,365);
-        puthz(148,344,"注册",16,24,LIGHTBLUE);
-	    setlinestyle(0,0,1);
-	    setcolor(LIGHTBLUE);
-	    rectangle(136,340,200,365);
-	    break;
-	case 5:
-		setlinestyle(0,0,1);
-	    setfillstyle(1,WHITE);
-		bar(440,340,504,365);
-        puthz(452,344,"退出",16,24,LIGHTBLUE);
-		setlinestyle(0,0,1);
-	    setcolor(LIGHTBLUE);
-	    rectangle(440,340,504,365);
-		break;
-	case 6:
-	    setlinestyle(0,0,1);
-	    setfillstyle(1,WHITE);
-		bar(264,340,376,365);
-        puthz(276,344,"修改密码",16,24,LIGHTBLUE);
-		setlinestyle(0,0,1);
-	    setcolor(LIGHTBLUE);//修改密码框
-	    rectangle(264,340,376,365);
-	}
-}
-
-
-
-
-
-
