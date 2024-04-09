@@ -9,12 +9,12 @@ void Login(int *page,int *num)
 	int tag=0;
 	char a[15]; 
 	char p[15];
-	
+	/*int  *num=NULL;*/
 	clrmous(MouseX,MouseY);
     delay(100);
     save_bk_mou(MouseX,MouseY);
     Draw_Login(); 
-    
+    /*num=(int *)malloc(sizeof(int));*/
     while(1)
     {
     	newmouse(&MouseX,&MouseY,&press);
@@ -67,7 +67,7 @@ void Login(int *page,int *num)
 				Light_Login(2);
 				MouseS=0;
 				p[0]='\0';
-				Input_Invis(p,170,245,12,LIGHTGRAY);
+				Input_Vis(p,170,245,12,LIGHTGRAY);
 				if(strlen(p)!=0)
 				{
 					pos2=2;
@@ -119,7 +119,7 @@ void Login(int *page,int *num)
                     setfillstyle(1, WHITE);
 		            puthz(274,230,"登录成功",24,24,RED);
 		            delay(3000);
-					*page=3;                                       //跳转至乘客功能界面
+					*page=3;                                       //跳转至用户功能界面
 					break;
 				}
 				else
@@ -154,7 +154,7 @@ void Login(int *page,int *num)
 				break;
 			}
 		}
-		//移至修改密码 
+		//移至忘记密码 
 		if(MouseX>264&&MouseX<376&&MouseY>340&&MouseY<365)
 		{
 			if(mouse_press(264,340,376,365)==2)
@@ -244,7 +244,7 @@ void Login(int *page,int *num)
 void  Draw_Login()
 {
 	cleardevice();
-	setbkcolor(DARKGRAY);     //背景 
+	setbkcolor(8);     //背景 
 	
 	setfillstyle(1,BLUE);
 	bar(0,0,640,60);
@@ -270,7 +270,7 @@ void  Draw_Login()
     rectangle(136,340,200,365);
     
     bar(264,340,376,365);
-    puthz(276,344,"修改密码",16,24,LIGHTBLUE);
+    puthz(276,344,"忘记密码",16,24,LIGHTBLUE);
     rectangle(264,340,376,365);
     
     bar(440,340,504,365);
@@ -324,7 +324,7 @@ void Light_Login(int tag)
         setlinestyle(0,0,1);
 		setfillstyle(1,WHITE);
 		bar(264,340,376,365);
-    	puthz(276,344,"修改密码",16,24,CYAN);
+    	puthz(276,344,"忘记密码",16,24,CYAN);
     	setcolor(CYAN);
         setlinestyle(0,0,1);
     	rectangle(264,340,376,365); 
@@ -377,9 +377,9 @@ void Dark_Login(int pos)
 		setlinestyle(0,0,1);
 	    setfillstyle(1,WHITE);
 		bar(264,340,376,365);
-        puthz(276,344,"修改密码",16,24,LIGHTBLUE);
+        puthz(276,344,"忘记密码",16,24,LIGHTBLUE);
 		setlinestyle(0,0,2);
-	    setcolor(LIGHTBLUE);//修改密码框
+	    setcolor(LIGHTBLUE);                                  //忘记密码框
 	    rectangle(264,340,376,365);
 	case 6:
 	    setlinestyle(0,0,1);
@@ -403,10 +403,10 @@ int Judge_Login(char *a,char *p,int *n)
 	int l;
 	int i;
 	FILE *fp;
-	USER *u;
+	USER *temp=NULL;
 	if((fp=fopen(".\\TEXT\\USER.dat","rb+"))==NULL)
 	{
-		printf("\nError on open file USER.dat!");
+		printf("\nError on open file UESR.dat!");
 		delay(3000);
 		exit(1);
 	}
@@ -414,33 +414,32 @@ int Judge_Login(char *a,char *p,int *n)
 	l=ftell(fp)/sizeof(USER);
 	for(i=0;i<l;i++)
 	{
-		if((u=(USER*)malloc(sizeof(USER)))==NULL)
+		if((temp=(USER*)malloc(sizeof(USER)))==NULL)
 		{
 			printf("\nMemory not enough!");
 			delay(3000);
 			exit(1);
 		}
 		fseek(fp,i*sizeof(USER),SEEK_SET);
-		fread(u,sizeof(USER),1,fp);
-		if(strcmp(a,u->account)==0)
-		{
-			if(strcmp(p,u->password)!=0)
+		fread(temp,sizeof(USER),1,fp);
+		if(strcmp(a,temp->account)==0)
+		{         
+			if(strcmp(p,temp->password)!=0)
 			{
 				puthz(550,250,"密码错误",16,16,RED);
 				break;
 			}
-			else if(strcmp(p,u->password)==0)
-			{
-				*n=u->num;
+			else if(strcmp(p,temp->password)==0)
+			{   *n=temp->num;
 				puthz(550,250,"密码正确",16,16,RED);
-				if(u!=NULL)
+				if(temp!=NULL)
 				{
-					free(u);
-					u=NULL;
+					free(temp);
+					temp=NULL;
 				} 
 				if(fclose(fp)!=0)
 				{
-					printf("\nError on close USER.dat!");
+					printf("\nError on close UESR.dat!");
 					delay(3000);
 					exit(1);
 				}
@@ -453,14 +452,14 @@ int Judge_Login(char *a,char *p,int *n)
 		puthz(550,215,"账号未注册",16,16,RED);
 	}
 	
-	if(u!=NULL)
+	if(temp!=NULL)
 	{
-		free(u);
-		u=NULL;
+		free(temp);
+		temp=NULL;
 	} 
 	if(fclose(fp)!=0)
 	{
-		printf("\nError on close USER.dat!");
+		printf("\nError on close UESR.dat!");
 		delay(3000);
 		exit(1);
 	}
