@@ -18,7 +18,7 @@ void Login(int *page,int *num)
     while(1)
     {
     	newmouse(&MouseX,&MouseY,&press);
-    	//ÒÆÖÁÕËºÅ 
+    	//ï¤³é€ç‘¯ëµ€ 
     	if(MouseX>170&&MouseX<545&&MouseY>210&&MouseY<235)
     	{
     		if(mouse_press(170,210,545,235)==2)
@@ -49,7 +49,7 @@ void Login(int *page,int *num)
 				continue;
 			}
 		}
-		//ÒÆÖÁÃÜÂë 
+		//ï¤³é€ìµ±ì¯¤ 
 		if(MouseX>170&&MouseX<545&&MouseY>245&&MouseY<270)
 		{
 			if(mouse_press(170,245,545,270)==2)
@@ -79,7 +79,7 @@ void Login(int *page,int *num)
 				continue;
 			}
 		}
-		//ÒÆÖÁµÇÂ¼ 
+		//ï¤³é€ë˜ì©Œ 
 		if(MouseX>260&&MouseX<380&&MouseY>290&&MouseY<325)
 		{
 			if(mouse_press(260,290,380,325)==2)
@@ -104,7 +104,7 @@ void Login(int *page,int *num)
                     bar(200,180,440,300);
                     rectangle(200,180,440,300);
                     setfillstyle(1, WHITE);
-		            puthz(274,220,"ÕıÔÚµÇÂ¼",24,24,RED);
+		            puthz(274,220,"æ”£ç³ë˜ì©Œ",24,24,RED);
 					stablack(282,270,3);
 					stablack(282,270,3);
 					delay(500);
@@ -117,23 +117,23 @@ void Login(int *page,int *num)
                     bar(200,180,440,300);
                     rectangle(200,180,440,300);
                     setfillstyle(1, WHITE);
-		            puthz(274,230,"µÇÂ¼³É¹¦",24,24,RED);
+		            puthz(274,230,"ë˜ì©Œëƒ¥ë¬˜",24,24,RED);
 		            delay(3000);
-					*page=3;                                       //Ìø×ªÖÁÓÃ»§¹¦ÄÜ½çÃæ
+					*page=3;                                       //å¥‘ç˜»é€ç—°ë¹µë¬˜ì½˜ì¹ì¶©
 					break;
 				}
 				else
 				{
 					setfillstyle(1,DARKGRAY);
 					bar(270,225,370,255);
-					puthz(272,227,"µÇÂ¼Ê§°Ü£¡",24,24,RED);
+					puthz(272,227,"ë˜ì©Œå‘µê²¨ï¼",24,24,RED);
 					delay(3000);
 					return;
 				}
 				continue;	
 			}
 		}
-		//ÒÆÖÁ×¢²á 
+		//ï¤³é€é¬§ê¿ 
 		if(MouseX>136&&MouseX<200&&MouseY>340&&MouseY<365)
 		{
 			if(mouse_press(136,340,200,365)==2)
@@ -154,7 +154,7 @@ void Login(int *page,int *num)
 				break;
 			}
 		}
-		//ÒÆÖÁÍü¼ÇÃÜÂë 
+		//ï¤³é€æˆˆì…˜ìµ±ì¯¤ 
 		if(MouseX>264&&MouseX<376&&MouseY>340&&MouseY<365)
 		{
 			if(mouse_press(264,340,376,365)==2)
@@ -175,7 +175,7 @@ void Login(int *page,int *num)
 				break;
 			}
 		}
-		//ÒÆÖÁÍË³ö 
+		//ï¤³é€è—ë†” 
 		if(MouseX>440&&MouseX<504&&MouseY>340&&MouseY<365)
 		{
 			if(mouse_press(440,340,504,365)==2)
@@ -197,7 +197,7 @@ void Login(int *page,int *num)
 				break;
 			}
 		}
-		//ÓÎ¿ÍµÇÂ¼
+		//è¸ì™€ë˜ì©Œ
 		if (MouseX>460&&MouseX<540&&MouseY>297&&MouseY<317)
 		{
 			if(mouse_press(460,297,540,317)==2)
@@ -244,15 +244,15 @@ void Login(int *page,int *num)
 void  Draw_Login()
 {
 	cleardevice();
-	setbkcolor(8);     //±³¾° 
+	setbkcolor(8);     //êµì’¼ 
 	
 	setfillstyle(1,BLUE);
 	bar(0,0,640,60);
 	bar(0,440,640,480);
-	puthz(240,14,"Îäºº»¶ÀÖ¹È",32,32,LIGHTGRAY);
+	puthz(240,14,"å¶ ë³¶ë»‘ìˆë¯„",32,32,LIGHTGRAY);
 	
-	puthz(95,203,"ÕËºÅ",32,32,CYAN);
-	puthz(95,245,"ÃÜÂë",32,32,CYAN);
+	puthz(95,203,"ç‘¯ëµ€",32,32,CYAN);
+	puthz(95,245,"ìµ±ì¯¤",32,32,CYAN);
 	
 	setfillstyle(1,WHITE);
 	bar(170,210,545,235);
@@ -260,26 +260,26 @@ void  Draw_Login()
 	
 	setfillstyle(1, RED);
     bar(260,290,380,325);
-    puthz(291,295,"µÇÂ¼",24,34,WHITE);
+    puthz(291,295,"ë˜ì©Œ",24,34,WHITE);
 
     setfillstyle(1,WHITE);
     bar(136,340,200,365);
-    puthz(148,344,"×¢²á",16,24,LIGHTBLUE);
+    puthz(148,344,"é¬§ê¿",16,24,LIGHTBLUE);
     setlinestyle(0,0,1);
     setcolor(LIGHTBLUE);
     rectangle(136,340,200,365);
     
     bar(264,340,376,365);
-    puthz(276,344,"Íü¼ÇÃÜÂë",16,24,LIGHTBLUE);
+    puthz(276,344,"æˆˆì…˜ìµ±ì¯¤",16,24,LIGHTBLUE);
     rectangle(264,340,376,365);
     
     bar(440,340,504,365);
-    puthz(452,344,"ÍË³ö",16,24,LIGHTBLUE);
+    puthz(452,344,"è—ë†”",16,24,LIGHTBLUE);
     rectangle(440,340,504,365);
     
     setfillstyle(1,RED);
 	bar(460,297,540,317);
-	puthz(468,299,"ÓÎ¿ÍµÇÂ¼",16,16,WHITE);
+	puthz(468,299,"è¸ì™€ë˜ì©Œ",16,16,WHITE);
 } 
 
 void Light_Login(int tag)
@@ -289,7 +289,7 @@ void Light_Login(int tag)
 	
 	if(tag==1)
 	{
-		setcolor(MAGENTA);       //Êó±êÒÆÖÁÕËºÅÀ¸ 
+		setcolor(MAGENTA);       //æŸ‘ê¹ƒï¤³é€ç‘¯ëµ€ìœ¼ 
 		setfillstyle(1,LIGHTGRAY);
 		setlinestyle(0,0,1);
 		bar(170,210,545,235);
@@ -297,7 +297,7 @@ void Light_Login(int tag)
 	}
 	else if(tag==2)
 	{
-		setcolor(MAGENTA);       //Êó±êÒÆÖÁÃÜÂëÀ¸ 
+		setcolor(MAGENTA);       //æŸ‘ê¹ƒï¤³é€ìµ±ì¯¤ìœ¼ 
 		setfillstyle(1,LIGHTGRAY);
 		setlinestyle(0,0,1);
 		bar(170,245,545,270);
@@ -307,14 +307,14 @@ void Light_Login(int tag)
 	{
 		setfillstyle(1,LIGHTRED);      
 		bar(260,290,380,325);
-		puthz(291,295,"µÇÂ¼",24,34,WHITE);
+		puthz(291,295,"ë˜ì©Œ",24,34,WHITE);
 	}
 	else if(tag==4)
 	{
 		setlinestyle(0,0,1);
 		setfillstyle(1,WHITE);            
 		bar(136,340,200,365);
-        puthz(148,344,"×¢²á",16,24,CYAN);
+        puthz(148,344,"é¬§ê¿",16,24,CYAN);
         setcolor(CYAN);
         setlinestyle(0,0,1);
         rectangle(136,340,200,365);	
@@ -324,7 +324,7 @@ void Light_Login(int tag)
         setlinestyle(0,0,1);
 		setfillstyle(1,WHITE);
 		bar(264,340,376,365);
-    	puthz(276,344,"Íü¼ÇÃÜÂë",16,24,CYAN);
+    	puthz(276,344,"æˆˆì…˜ìµ±ì¯¤",16,24,CYAN);
     	setcolor(CYAN);
         setlinestyle(0,0,1);
     	rectangle(264,340,376,365); 
@@ -334,7 +334,7 @@ void Light_Login(int tag)
     	setlinestyle(0,0,1);
     	setfillstyle(1,WHITE);
     	bar(440,340,504,365);
-        puthz(452,344,"ÍË³ö",16,24,CYAN);
+        puthz(452,344,"è—ë†”",16,24,CYAN);
         setcolor(CYAN);
         setlinestyle(0,0,1);
         rectangle(440,340,504,365);		    
@@ -343,7 +343,7 @@ void Light_Login(int tag)
 	{
 		setfillstyle(1,LIGHTRED);      
 		bar(460,297,540,317);
-		puthz(468,299,"ÓÎ¿ÍµÇÂ¼",16,16,WHITE);
+		puthz(468,299,"è¸ì™€ë˜ì©Œ",16,16,WHITE);
 	}
 }
 
@@ -362,13 +362,13 @@ void Dark_Login(int pos)
 	case 3:
 		setfillstyle(1, RED);
 	    bar(260,290,380,325);
-        puthz(291,295,"µÇÂ¼",24,34,WHITE);
+        puthz(291,295,"ë˜ì©Œ",24,34,WHITE);
 		break;
 	case 4:
 		setlinestyle(0,0,1);
 	    setfillstyle(1,WHITE);
 	    bar(136,340,200,365);
-        puthz(148,344,"×¢²á",16,24,LIGHTBLUE);
+        puthz(148,344,"é¬§ê¿",16,24,LIGHTBLUE);
 	    setlinestyle(0,0,2);
 	    setcolor(LIGHTBLUE);
 	    rectangle(136,340,200,365);
@@ -377,15 +377,15 @@ void Dark_Login(int pos)
 		setlinestyle(0,0,1);
 	    setfillstyle(1,WHITE);
 		bar(264,340,376,365);
-        puthz(276,344,"Íü¼ÇÃÜÂë",16,24,LIGHTBLUE);
+        puthz(276,344,"æˆˆì…˜ìµ±ì¯¤",16,24,LIGHTBLUE);
 		setlinestyle(0,0,2);
-	    setcolor(LIGHTBLUE);                                  //Íü¼ÇÃÜÂë¿ò
+	    setcolor(LIGHTBLUE);                                  //æˆˆì…˜ìµ±ì¯¤ì›€
 	    rectangle(264,340,376,365);
 	case 6:
 	    setlinestyle(0,0,1);
 	    setfillstyle(1,WHITE);
 		bar(440,340,504,365);
-        puthz(452,344,"ÍË³ö",16,24,LIGHTBLUE);
+        puthz(452,344,"è—ë†”",16,24,LIGHTBLUE);
 		setlinestyle(0,0,2);
 	    setcolor(LIGHTBLUE);
 	    rectangle(440,340,504,365);
@@ -393,7 +393,7 @@ void Dark_Login(int pos)
 	case 7:
 		setfillstyle(1, RED);
 	    bar(460,297,540,317);
-		puthz(468,299,"ÓÎ¿ÍµÇÂ¼",16,16,WHITE);
+		puthz(468,299,"è¸ì™€ë˜ì©Œ",16,16,WHITE);
 		break;
 	}
 }
@@ -426,12 +426,12 @@ int Judge_Login(char *a,char *p,int *n)
 		{         
 			if(strcmp(p,temp->password)!=0)
 			{
-				puthz(550,250,"ÃÜÂë´íÎó",16,16,RED);
+				puthz(550,250,"ìµ±ì¯¤ëŒ„è½",16,16,RED);
 				break;
 			}
 			else if(strcmp(p,temp->password)==0)
 			{   *n=temp->num;
-				puthz(550,250,"ÃÜÂëÕıÈ·",16,16,RED);
+				puthz(550,250,"ìµ±ì¯¤æ”£íš…",16,16,RED);
 				if(temp!=NULL)
 				{
 					free(temp);
@@ -449,7 +449,7 @@ int Judge_Login(char *a,char *p,int *n)
 	}
 	if(i==l)
 	{
-		puthz(550,215,"ÕËºÅÎ´×¢²á",16,16,RED);
+		puthz(550,215,"ç‘¯ëµ€çŒé¬§ê¿",16,16,RED);
 	}
 	
 	if(temp!=NULL)
