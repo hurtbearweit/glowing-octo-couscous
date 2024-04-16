@@ -12,7 +12,6 @@ void R_List_1(int *page,int *num)
 	R_List_Output(1);
 	delay(500);
 	
-	
 	while(1)
 	{
 		newmouse(&MouseX,&MouseY,&press);
@@ -21,20 +20,23 @@ void R_List_1(int *page,int *num)
 			if(mouse_press(470,50,620,100)==2)
 			{
 				MouseS=1;
-				if(tag==0)
+				if(pos!=11)
 				{
-					tag=11;
-					R_List_Lighten(470,50,620,100,11);
+					if(tag==0)
+					{
+						tag=11;
+						R_List_Lighten(470,50,620,100,11);
+					}
 				}
 				continue;
 			}
 			else if(mouse_press(470,50,620,100)==1)
 			{
 				pos=11;
-				tag=0;
 				Draw_Reserve(pos);
 				MouseS=0;
 				R_Input_Data(num,pos);	
+				continue;
 			}
 		}
 		//项目1 
@@ -43,20 +45,23 @@ void R_List_1(int *page,int *num)
 			if(mouse_press(470,100,620,150)==2)
 			{
 				MouseS=1;
-				if(tag==0)
+				if(pos!=12)
 				{
-					tag=12;
-					R_List_Lighten(470,100,620,150,12);
+					if(tag==0)
+					{
+						tag=12;
+						R_List_Lighten(470,100,620,150,12);
+					}
 				}
 				continue;
 			}
 			else if(mouse_press(470,100,620,150)==1)
 			{
-				pos==12;
-				tag=0;
+				pos=12;
 				Draw_Reserve(pos);
 				MouseS=0;
-				R_Input_Data(num,pos);	
+				R_Input_Data(num,pos);
+				continue;
 			}
 		}
 		//项目2 
@@ -65,20 +70,23 @@ void R_List_1(int *page,int *num)
 			if(mouse_press(470,150,620,200)==2)
 			{
 				MouseS=1;
-				if(tag==0)
+				if(pos!=13)
 				{
-					tag=13;
-					R_List_Lighten(470,150,620,200,13);
+					if(tag==0)
+					{
+						tag=13;
+						R_List_Lighten(470,150,620,200,13);
+					}
 				}
 				continue;
 			}
 			else if(mouse_press(470,150,620,200)==1)
 			{
-				pos==13;
-				tag=0;
+				pos=13;
 				Draw_Reserve(pos);
 				MouseS=0;
 				R_Input_Data(num,pos); 
+				continue;
 			}
 		}
 		//项目3 
@@ -87,20 +95,23 @@ void R_List_1(int *page,int *num)
 			if(mouse_press(470,200,620,250)==2)
 			{
 				MouseS=1;
-				if(tag==0)
+				if(pos!=14)
 				{
-					tag=14;
-					R_List_Lighten(470,200,620,250,14);
+					if(tag==0)
+					{
+						tag=14;
+						R_List_Lighten(470,200,620,250,14);
+					}
 				}
 				continue;
 			}
 			else if(mouse_press(470,200,620,250)==1)
 			{
-				pos==14;
-				tag=0;
+				pos=14;
 				Draw_Reserve(pos);
 				MouseS=0;
 				R_Input_Data(num,pos);	
+				continue;
 			}
 		}
 		//项目4 
@@ -109,20 +120,23 @@ void R_List_1(int *page,int *num)
 			if(mouse_press(470,250,620,300)==2)
 			{
 				MouseS=1;
-				if(tag==0)
+				if(pos!=15)
 				{
-					tag=15;
-					R_List_Lighten(470,250,620,300,15);
+					if(tag==0)
+					{
+						tag=15;
+						R_List_Lighten(470,250,620,300,15);
+					}
 				}
 				continue;
 			}
 			else if(mouse_press(470,250,620,300)==1)
 			{
-				pos==15;
-				tag=0;
+				pos=15;
 				Draw_Reserve(pos);
 				MouseS=0;
-				R_Input_Data(num,pos);	
+				R_Input_Data(num,pos);
+				continue;	
 			}
 		}
 		//项目5 
@@ -131,20 +145,23 @@ void R_List_1(int *page,int *num)
 			if(mouse_press(470,300,620,350)==2)
 			{
 				MouseS=1;
-				if(tag==0)
+				if(pos!=16)
 				{
-					tag=16;
-					R_List_Lighten(470,300,620,350,16);
+					if(tag==0)
+					{	
+						tag=16;
+						R_List_Lighten(470,300,620,350,16);
+					}
 				}
 				continue;
 			}
 			else if(mouse_press(470,300,620,350)==1)
 			{
-				pos==16;
-				tag=0;
+				pos=16;
 				Draw_Reserve(pos);
 				MouseS=0;
-				R_Input_Data(num,pos);	
+				R_Input_Data(num,pos);
+				continue;	
 			}
 		}
 		//项目6 
@@ -153,20 +170,23 @@ void R_List_1(int *page,int *num)
 			if(mouse_press(470,350,620,400)==2)
 			{
 				MouseS=1;
-				if(tag==0)
+				if(pos!=17)
 				{
-					tag=17;
-					R_List_Lighten(470,350,620,400,17);
+					if(tag==0)
+					{
+						tag=17;
+						R_List_Lighten(470,350,620,400,17);
+					}
 				}
 				continue;
 			}
 			else if(mouse_press(470,350,620,400)==1)
 			{
-				pos==17;
-				tag=0;
+				pos=17;
 				Draw_Reserve(pos);
 				MouseS=0;
-				R_Input_Data(num,pos);	
+				R_Input_Data(num,pos);
+				continue;	
 			}
 		}
 		//项目7  
@@ -189,7 +209,7 @@ void R_List_1(int *page,int *num)
 				clrmous(MouseX, MouseY);
 				delay(100);
 				save_bk_mou(MouseX, MouseY);
-				*page=3;
+				*page=6;
 				break;
 			}
 		}
@@ -216,10 +236,13 @@ void R_List_1(int *page,int *num)
 				break;
 			}
 		}		 		 
-		if(tag!=0)
+		if(pos==0)
 		{
-			R_List_Dark(tag);
-			tag=0;
+			if(tag!=0)
+			{
+				R_List_Dark(tag);
+				tag=0;
+			}
 		}	 
 		if(MouseS!=0)
 		{
@@ -243,26 +266,28 @@ void R_List_2(int *page,int *num)
 	while(1)
 	{
 		newmouse(&MouseX,&MouseY,&press);
-		if(MouseX>470&&MouseX<620&&MouseY>100&&MouseY<150)
+		if(MouseX>470&&MouseX<620&&MouseY>50&&MouseY<100)
 		{
-			if(mouse_press(470,100,620,150)==2)
+			if(mouse_press(470,50,620,100)==2)
 			{
 				MouseS=1;
-				if(tag==0)
+				if(pos!=21)
 				{
-					tag=21;
-					R_List_Lighten(470,50,620,100,21);
+					if(tag==0)
+					{
+						tag=21;
+						R_List_Lighten(470,50,620,100,21);
+					}	
 				}
 				continue;
 			}
-			else if(mouse_press(470,100,620,150)==1)
+			else if(mouse_press(470,50,620,100)==1)
 			{
 				pos==21;
-				tag=0;
-				R_List_Lighten(470,50,620,100,21);
-				MouseS=0;
-				R_Input_Data(num,pos-20);
 				Draw_Reserve(pos);
+				MouseS=0;
+				R_Input_Data(num,pos);
+				continue;
 			}
 		}
 		if(MouseX>50&&MouseX<140&&MouseY>425&&MouseY<460)   //在返回键上
@@ -316,6 +341,7 @@ void R_List_2(int *page,int *num)
 			R_List_Dark(tag); 
 			tag=0;	 		 
 		}
+		
 		if(MouseS!=0)
 	    {
 		    MouseS=0;
@@ -509,41 +535,41 @@ void R_List_Output(int temp)
 	        puthz(195,20,"所在区域",24,24,RED);
 			puthz(345,20,"项目特点",24,24,RED);
 			puthz(495,20,"预约状况",24,24,RED);
-	
-			puthz(45,70,"木翼双龙",24,24,BLUE);
-			puthz(195,70,"欢乐江城",24,24,BLUE);
-			puthz(345,70,"恢弘刺激",24,24,BLUE);
-			puthz(525,70,"预约",24,24,BLUE);
-	
-			puthz(45,120,"极速飞车",24,24,BLUE);
-			puthz(195,120,"极速世界",24,24,BLUE);
-			puthz(345,120,"急速失重",24,24,BLUE);
-			puthz(525,120,"预约",24,24,BLUE);
-	
-			puthz(45,170,"完美风暴",24,24,BLUE);
-			puthz(210,170,"飓风湾",24,24,BLUE);
-			puthz(345,170,"翻转失重",24,24,BLUE);
-			puthz(525,170,"预约",24,24,BLUE);
-	
-			puthz(60,220,"摩天塔",24,24,BLUE);
-			puthz(210,220,"渔光岛",24,24,BLUE);
-			puthz(345,220,"至高观光",24,24,BLUE);
-			puthz(525,220,"预约",24,24,BLUE);
 			
-			puthz(45,270,"天地双雄",24,24,BLUE);
-			puthz(195,270,"欢乐时光",24,24,BLUE);
-			puthz(345,270,"骤升骤降",24,24,BLUE);
-			puthz(525,270,"预约",24,24,BLUE);
+			puthz(45,70,"音乐飞船",24,24,BLUE);
+			puthz(195,70,"欢乐海洋",24,24,BLUE);
+			puthz(345,70,"动感旋转",24,24,BLUE);
+			puthz(525,70,"预约",24,24,BLUE);						//0
+			
+			puthz(30,120,"疯狂溜达车",24,24,BLUE);
+			puthz(195,120,"卡通工厂",24,24,BLUE);
+			puthz(335,120,"至尊合家欢",24,24,BLUE);
+			puthz(525,120,"预约",24,24,BLUE);						//1
 	
-			puthz(45,320,"莲花栈道",24,24,BLUE);
-			puthz(195,320,"羽落天堂",24,24,BLUE);
-			puthz(345,320,"自然美好",24,24,BLUE);
-			puthz(525,320,"预约",24,24,BLUE);
+			puthz(45,170,"天地双雄",24,24,BLUE);
+			puthz(195,170,"欢乐时光",24,24,BLUE);
+			puthz(345,170,"骤升骤降",24,24,BLUE);
+			puthz(525,170,"预约",24,24,BLUE);						//2
+			
+			puthz(45,220,"完美风暴",24,24,BLUE);
+			puthz(210,220,"飓风湾",24,24,BLUE);
+			puthz(345,220,"翻转失重",24,24,BLUE);
+			puthz(525,220,"预约",24,24,BLUE);						//3
+			
+			puthz(45,270,"木翼双龙",24,24,BLUE);
+			puthz(195,270,"欢乐江城",24,24,BLUE);
+			puthz(345,270,"恢弘刺激",24,24,BLUE);
+			puthz(525,270,"预约",24,24,BLUE);						//4
 	
-			puthz(45,370,"音乐飞船",24,24,BLUE);
-			puthz(195,370,"欢乐海洋",24,24,BLUE);
-			puthz(345,370,"动感旋转",24,24,BLUE);
-			puthz(525,370,"预约",24,24,BLUE);
+			puthz(60,320,"摩天塔",24,24,BLUE);
+			puthz(210,320,"渔光岛",24,24,BLUE);
+			puthz(345,320,"至高观光",24,24,BLUE);
+			puthz(525,320,"预约",24,24,BLUE);						//5
+	
+			puthz(45,370,"莲花栈道",24,24,BLUE);
+			puthz(195,370,"羽落天堂",24,24,BLUE);
+			puthz(345,370,"自然美好",24,24,BLUE);
+			puthz(525,370,"预约",24,24,BLUE);						//6
 			break;
 		case 2:
 			puthz(45,20,"项目名称",24,24,RED);
@@ -551,10 +577,10 @@ void R_List_Output(int temp)
 			puthz(345,20,"项目特点",24,24,RED);
 			puthz(495,20,"预约状态",24,24,RED);
 	
-			puthz(30,70,"疯狂溜达车",24,24,BLUE);
-			puthz(195,70,"卡通工厂",24,24,BLUE);
-			puthz(335,70,"至尊合家欢",24,24,BLUE);
-			puthz(525,70,"预约",24,24,BLUE);
+			puthz(45,70,"极速飞车",24,24,BLUE);
+			puthz(195,70,"极速世界",24,24,BLUE);
+			puthz(345,70,"急速失重",24,24,BLUE);
+			puthz(525,70,"预约",24,24,BLUE);						//7
 	
 			setcolor(RED);
 			puthz(50,120,"以上所有内容均来自欢乐谷官网",24,24,RED);
@@ -602,29 +628,29 @@ void R_Draw_List_2()
 }
 
 void R_Input_Data(int *num,int pos)				//将预约的项目读入该用户的文件中 
-{
+{  
 	int l;
 	int i;
 	FILE *fp;
-	ITEM *n;
-	if((fp=fopen(".\\TEXT\\IT.dat","rb+"))==NULL)
+	USER *n;
+	if((fp=fopen(".\\TEXT\\USER.dat","rb+"))==NULL)
 	{
-		printf("\nErroe on open file IT.dat!");
+		printf("\nErroe on open file USER.dat!");
 		delay(3000);
 		exit(1);
 	}
 	fseek(fp,0,SEEK_END);
-	l=ftell(fp)/sizeof(ITEM);
+	l=ftell(fp)/sizeof(USER);
 	for(i=0;i<l;i++)
 	{
-		if((n=(ITEM*)malloc(sizeof(ITEM)))==NULL)
+		if((n=(USER*)malloc(sizeof(USER)))==NULL)
 		{
 			printf("\nMemory not enough!");
 			delay(3000);
 			exit(1);
 		}
-		fseek(fp,i*sizeof(ITEM),SEEK_SET);
-		fread(n,sizeof(ITEM),1,fp);
+		fseek(fp,i*sizeof(USER),SEEK_SET);
+		fread(n,sizeof(USER),1,fp);
 		if(*num==n->num)
 		{
 			if(pos>10&&pos<20)
@@ -635,7 +661,7 @@ void R_Input_Data(int *num,int pos)				//将预约的项目读入该用户的文件中
 			{
 				n->it[7]=1;
 			}
-			fseek(fp,i*sizeof(ITEM),SEEK_SET);
+			fseek(fp,i*sizeof(USER),SEEK_SET);
 			fwrite(n,sizeof(USER),1,fp);
 		}
 	}
@@ -650,10 +676,15 @@ void R_Input_Data(int *num,int pos)				//将预约的项目读入该用户的文件中
 		delay(3000);
 		exit(1);
 	}
+	
 }
 
 void Draw_Reserve(int pos)
 {
+	clrmous(MouseX,MouseY);
+    delay(100);
+    save_bk_mou(MouseX,MouseY);
+    
 	switch(pos)
 	{
 		case 11:
@@ -684,16 +715,9 @@ void Draw_Reserve(int pos)
 			cover(471,351,619,399,LIGHTGREEN);
 			puthz(509,370,"已预约",24,24,BLUE);
 			break;
-		case 18:
+		case 21:
 			cover(471,51,619,99,LIGHTGREEN);
 			puthz(509,70,"已预约",24,24,BLUE);
 			break;
 	}
 }
-
-
-
-
-
-
-
